@@ -21,12 +21,18 @@ class HomeView extends StatelessWidget {
       body: Container(
         width: w,
         height: h,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
+        child: ListView(
+          // crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Spacer(flex: 2),
-            Text('Select Your Level',
-                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
+            SizedBox(height: 70),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('Select Your Level',
+                    style:
+                        TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
+              ],
+            ),
             SizedBox(height: 50),
             LevelButton(
               text: 'Easy (5)',
@@ -36,10 +42,12 @@ class HomeView extends StatelessWidget {
               width: w * .35,
             ),
             LevelButton(
-                text: 'Meduim (10)',
-                onTap: () {
-                  cubit.chooseLevel(2);
-                },color: Colors.amber,),
+              text: 'Meduim (10)',
+              onTap: () {
+                cubit.chooseLevel(2);
+              },
+              color: Colors.amber,
+            ),
             LevelButton(
               text: 'Hard (15)',
               onTap: () {
@@ -48,8 +56,7 @@ class HomeView extends StatelessWidget {
               width: w * .65,
               color: Colors.greenAccent,
             ),
-            const SizedBox(height: 50),
-            Spacer(),
+            const SizedBox(height: 70),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -59,15 +66,12 @@ class HomeView extends StatelessWidget {
                 ),
                 cubit.loading
                     ? CircularProgressIndicator()
-                    : Text(
-                        '${cubit.topScore}',
-                        style:textStyle
-                      ),
+                    : Text('${cubit.topScore}', style: textStyle),
               ],
             ),
-            const SizedBox(height: 50),
+            const SizedBox(height: 70),
             ScoresButton(scaffKey),
-            const SizedBox(height: 50),
+            const SizedBox(height: 70),
           ],
         ),
       ),

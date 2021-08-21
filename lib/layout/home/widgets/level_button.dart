@@ -12,22 +12,27 @@ class LevelButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
-    return Container(
-      width: width ?? w * .5,
-      height: 50,
-      margin: EdgeInsets.only(bottom: 25.0),
-      child: ElevatedButton(
-        onPressed: () {
-          onTap();
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => QuizView()));
-        },
-        child: Text(text),
-        style: ElevatedButton.styleFrom(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0)),
-            primary: color ?? Colors.blue),
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          width: width ?? w * .5,
+          height: 50,
+          margin: EdgeInsets.only(bottom: 25.0),
+          child: ElevatedButton(
+            onPressed: () {
+              onTap();
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => QuizView()));
+            },
+            child: Text(text),
+            style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0)),
+                primary: color ?? Colors.blue),
+          ),
+        ),
+      ],
     );
   }
 }

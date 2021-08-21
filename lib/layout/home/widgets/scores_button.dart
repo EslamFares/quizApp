@@ -10,7 +10,7 @@ class ScoresButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     HomeCubit cubit = HomeCubit.get(context);
-    List<Score> reversedScore = cubit.topScoreList.reversed.toList();
+   late List<Score> reversedScore = cubit.topScoreList.reversed.toList();
     return TextButton(
         onPressed: () {
           scaffKey.currentState!.showBottomSheet((context) => Container(
