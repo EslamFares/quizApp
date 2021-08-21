@@ -13,3 +13,4 @@ class LevelState extends HomeStates {}
 class DegreeState extends HomeStates {}
 
 class TopScoreState extends HomeStates {}
+class LoadingeState extends HomeStates {}

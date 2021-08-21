@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:question_quiz/layout/quiz_view/quiz_view.dart';
 
@@ -6,7 +5,9 @@ class LevelButton extends StatelessWidget {
   final String text;
   final Function onTap;
   final double? width;
-  const LevelButton({required this.text, required this.onTap, this.width});
+  final Color? color;
+  const LevelButton(
+      {required this.text, required this.onTap, this.width, this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +24,9 @@ class LevelButton extends StatelessWidget {
         },
         child: Text(text),
         style: ElevatedButton.styleFrom(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
-        ),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0)),
+            primary: color ?? Colors.blue),
       ),
     );
   }

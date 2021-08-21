@@ -19,7 +19,7 @@ class Data {
       ],
     },
     {
-      'q': '1*3*0+1=',
+      'q': '1 * 3 * 0 + 1 =',
       'a': [
         {'text': '1', 'state': true},
         {'text': '2', 'state': false},
@@ -100,12 +100,39 @@ class Data {
       ],
     },
     {
-      'q': 'flutter is ?',
+      'q': '5 * 5 / 5 - 5 + 5 =',
       'a': [
-        {'text': 'all', 'state': true},
-        {'text': 'android', 'state': false},
-        {'text': 'ios', 'state': false},
-        {'text': 'wed', 'state': false},
+        {'text': '25', 'state': false},
+        {'text': '10', 'state': false},
+        {'text': '5', 'state': true},
+        {'text': '0', 'state': false},
+      ],
+    },
+    {
+      'q': '33 / 1 =',
+      'a': [
+        {'text': '33', 'state': true},
+        {'text': '3', 'state': false},
+        {'text': '11', 'state': false},
+        {'text': '1', 'state': false},
+      ],
+    },
+    {
+      'q': 'true is ',
+      'a': [
+        {'text': 'red', 'state': false},
+        {'text': 'white', 'state': false},
+        {'text': 'green', 'state': true},
+        {'text': 'blue', 'state': false},
+      ],
+    },
+    {
+      'q': '5 + 5 = ',
+      'a': [
+        {'text': '10', 'state': true},
+        {'text': '55', 'state': false},
+        {'text': '5', 'state': false},
+        {'text': '25', 'state': false},
       ],
     },
   ];

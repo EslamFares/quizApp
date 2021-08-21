@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:question_quiz/cubit/home/home_cubit.dart';
-import 'package:question_quiz/dummy_data/data.dart';
+import 'package:question_quiz/layout/quiz_view/widget/anwser_button.dart';
 import 'package:question_quiz/shared/themes/dark_theme.dart';
 
 class QuizView extends StatelessWidget {
@@ -10,12 +10,13 @@ class QuizView extends StatelessWidget {
     double w = MediaQuery.of(context).size.width;
     double h = MediaQuery.of(context).size.height;
 
-    String question = Data.question[cubit.qNum]['q'];
-    List answer = Data.question[cubit.qNum]['a'];
+ 
+    String question =cubit.bigData[cubit.qNum]['q'];
+    List answer = cubit.bigData[cubit.qNum]['a'];
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Q ${cubit.qNum + 1 }'),
+        title: Text('Q ${cubit.qNum + 1}'),
         leading: IconButton(
             onPressed: () {
               cubit.clearAll();
@@ -48,6 +49,7 @@ class QuizView extends StatelessWidget {
               child: ListView.builder(
                 itemCount: answer.length,
                 itemBuilder: (BuildContext context, int index) => AnwserButton(
+                  answer: answer,
                     color: cubit.getColor(index),
                     index: index,
                     onTap: () {
@@ -90,35 +92,6 @@ class QuizView extends StatelessWidget {
             )
           ],
         ),
-      ),
-    );
-  }
-}
-
-class AnwserButton extends StatelessWidget {
-  final int index;
-  final Function onTap;
-  final Color color;
-  const AnwserButton(
-      {required this.onTap, required this.index, required this.color});
-  @override
-  Widget build(BuildContext context) {
-    HomeCubit cubit = HomeCubit.get(context);
-    List answer = Data.question[cubit.qNum]['a'];
-    double w = MediaQuery.of(context).size.width;
-    return Container(
-      margin: EdgeInsets.all(5),
-      child: InkWell(
-        onTap: () {
-          onTap();
-        },
-        child: Container(
-            width: w * .4,
-            height: 50,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50.0),
-                border: Border.all(color: color, width: 2)),
-            child: Center(child: Text(answer[index]['text']))),
       ),
     );
   }
